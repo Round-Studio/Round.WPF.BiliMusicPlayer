@@ -1,0 +1,81 @@
+﻿<metro:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Round.WPF.MusicPlayer"
+        xmlns:AppControls="clr-namespace:Round.WPF.MusicPlayer.Module.AppControls" x:Class="Round.WPF.MusicPlayer.MainWindow"
+        mc:Ignorable="d"
+        metro:WindowStyle="None"
+        metro:AllowsTransparency="True"
+        metro:ShowTitleBar="False"
+        metro:ShowMinButton="False"
+        metro:ShowMaxRestoreButton="False"
+        metro:ShowCloseButton="False"
+        MinWidth="1100"
+        MinHeight="600"
+        xmlns:metro ="http://metro.mahapps.com/winfx/xaml/controls"
+        Title="Round Music Player" Height="780" Width="1270" WindowStartupLocation="CenterScreen" Background="{x:Null}" WindowTitleBrush="{x:Null}">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="10"/>
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" SpreadMethod="Pad">
+                    <GradientStop Color="#FFECCDFF" Offset="1"/>
+                    <GradientStop Color="#FFA5FFE8"/>
+                    <GradientStop Color="#FFC7DFFF" Offset="0.364"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <!--
+            <Border.Effect>
+    <DropShadowEffect ShadowDepth="0" BlurRadius="20" Opacity="0.8"/>
+</Border.Effect>-->
+            <Grid>
+                <Border Height="39" VerticalAlignment="Top" CornerRadius="0,0,0,0" Background="#B2525252" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+                    <Grid>
+                        <Button x:Name="MinWindow" Margin="0,8,39,7" Style="{StaticResource MinimizeButtonStyle}" Background="#FF717171" Click="MinWindow_Click" HorizontalAlignment="Right" Width="24">
+                            <Grid Height="19" Width="19">
+                                <Label Content="_" Margin="0.8,-12,-5,-2" d:LayoutOverrides="Height" Foreground="White" FontSize="16"/>
+                            </Grid>
+                        </Button>
+                        <Button x:Name="CloseWindow" Style="{StaticResource CloseButtonStyle}" Margin="0,8,10,7" Background="#FF717171" Click="CloseWindow_Click" HorizontalAlignment="Right" Width="24">
+                            <Grid Height="19" Width="19">
+                                <Label Content="×" Margin="-1.2,-6.5,-2.8,-1" d:LayoutOverrides="Height" Foreground="White" FontSize="16"/>
+                            </Grid>
+                        </Button>
+                        <AppControls:SearchBox Margin="422,-6,422,-5" d:LayoutOverrides="Width"/>
+                    </Grid>
+                </Border>
+                <Grid Margin="0,39,0,0">
+                    <TabControl Background="{x:Null}" BorderBrush="#33FFFFFF" Name="Tabs" Margin="0,0,0,115">
+                        <TabItem Header="主页" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                            <Grid>
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="搜索" HorizontalContentAlignment="Stretch">
+                            <Grid>
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Center">
+                                    <WrapPanel x:Name="WrapBox" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                        <!-- 动态添加视频到WrapPanel -->
+                                    </WrapPanel>
+                                </ScrollViewer>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="播放队列">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
+                                <WrapPanel x:Name="PlayerList" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                    <!-- 动态添加视频到WrapPanel -->
+                                </WrapPanel>
+                            </ScrollViewer>
+
+                        </TabItem>
+                    </TabControl>
+                    <AppControls:PlayerBox x:Name="MainPlayerBox" Background="White" Height="115" VerticalAlignment="Bottom"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</metro:MetroWindow>

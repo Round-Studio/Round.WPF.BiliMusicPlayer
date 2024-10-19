@@ -1,0 +1,13 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Round.WPF.MusicPlayer.Module.AppControls"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Round.WPF.MusicPlayer.Module.AppControls.SearchBox"
+             mc:Ignorable="d" Height="50">
+    <Grid>
+        <TextBox x:Name="TextBoxInput" Margin="10,10,65,10" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" BorderBrush="Black" Background="White" mah:TextBoxHelper.Watermark="在此处键入关键词搜索"/>
+        <Button Content="查找" Margin="0,10,10,10" d:LayoutOverrides="VerticalAlignment" Click="Button_Click" FontSize="12" Style="{DynamicResource MahApps.Styles.Button.Square}" HorizontalAlignment="Right" Width="55"/>
+    </Grid>
+</UserControl>
